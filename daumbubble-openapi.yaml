@@ -1,0 +1,19 @@
+openapi: 3.1.0
+info:
+  title: Kakao Trend Keyword Proxy API
+  version: 1.0.0
+  description: Fetch trending keywords via proxy server
+servers:
+  - url: https://kakao-proxy-server.vercel.app
+    description: Proxy Server
+paths:
+  /api/kakao:
+    get:
+      operationId: getTrendKeywordsViaProxy
+      summary: Get trending keywords via proxy
+      description: Fetches trending keywords from Kakao through a proxy.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
