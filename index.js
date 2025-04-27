@@ -3,7 +3,8 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const KAKAO_API_KEY = 'KakaoAK 8da6e83ec6f6b1da277b545cbb944102'; // 카카오 API 키
+// 환경변수로부터 API 키를 읽는다
+const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
 
 app.get('/kakao', async (req, res) => {
   try {
