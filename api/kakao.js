@@ -16,9 +16,11 @@ export default async function handler(req, res) {
         }
       });
 
+      // ✅ 카카오 응답 데이터 출력
+      console.log('✅ [랜덤=2] 카카오 응답 데이터:', response.data);
+
       res.status(200).json(response.data);
     } catch (error) {
-      // random=2 요청이 실패하면 random=1로 재시도
       try {
         const fallbackResponse = await axios.get('https://dapi.kakao.com/trend-keyword/v2/keywords.json', {
           headers: {
@@ -33,8 +35,14 @@ export default async function handler(req, res) {
           }
         });
 
+        // ✅ fallback 요청 응답도 로그 출력
+        console.log('✅ [랜덤=1] fallback 응답 데이터:', fallbackResponse.data);
+
         res.status(200).json(fallbackResponse.data);
       } catch (fallbackError) {
+        // ✅ 에러도 콘솔에 출력
+        console.error('❌ fallbackError 발생:', fallbackError.response?.data || fallbackError.message);
+
         res.status(fallbackError.response?.status || 500).json(
           fallbackError.response?.data || { error: fallbackError.message }
         );
