@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         params: {
           w: 'trend_keyword',
           random: 2,
-          n: 200
+          n: 100
         }
       });
 
