@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         params: {
           w: 'trend_keyword',
           random: 2,
-          n: 100
+          n: 200
         }
       });
 
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
           params: {
             w: 'trend_keyword',
             random: 1,
-            n: 100
+            n: 200
           }
         });
 
